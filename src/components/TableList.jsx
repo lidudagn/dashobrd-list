@@ -1,15 +1,9 @@
-import { useState, useEffect } from "react";
+
 
 import {
   MaterialReactTable,
   useMaterialReactTable,
 } from "material-react-table";
-
-
-
-
-
-
 const MaterialTable = ({
   data,
   count,
