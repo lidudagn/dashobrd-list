@@ -207,7 +207,7 @@ const Sidebar = ({ setActiveTab, activeTab ,isOpen ,setIsOpen,isShrunk,setIsShru
         left: 0,
         bottom:0,
         height: '100%',
-        width: isShrunk ? 80 : 260,
+        width: isShrunk ? 80 : 300,
         zIndex: 1000,
         bgcolor: "#E6E6FA",
      
