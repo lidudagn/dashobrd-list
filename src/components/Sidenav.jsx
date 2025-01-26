@@ -274,14 +274,14 @@ const Sidebar = ({ setActiveTab, activeTab ,isOpen ,setIsOpen,isShrunk,setIsShru
                     borderRadius: "12px",
                     marginBottom: "8px",
                     bgcolor: activeTab === item.value ? "#FFE5D9" : "transparent",
-                    color: activeTab === item.value ? "#ff6f00" : "#4A5568",
+                    color: activeTab === item.value ? "#FFA500" : "#4A5568",
                     "&:hover": { bgcolor: "#FFE5D9" },
                     paddingLeft: isShrunk ? "8px" : "16px",
                   }}
                 >
                   <ListItemIcon
                     sx={{
-                      color: activeTab === item.value ? "#ff6f00" : "#A0AEC0",
+                      color: activeTab === item.value ? "#FFA500" : "#A0AEC0",
                       minWidth: "40px", // Keep icon size consistent
                     }}
                   >
