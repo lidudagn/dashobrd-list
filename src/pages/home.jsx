@@ -365,9 +365,9 @@ const Home = () => {
             />
           )
         ) : (
-          <Box display="flex" flexDirection="column" alignItems="center" justifyContent="center" height="100vh">
+          <Box display="flex" flexDirection= "column" alignItems="center" justifyContent="center" height="100vh">
             <FaInfoCircle size={48} color="#6b5b95" />
-            <Typography variant="h6" color="textSecondary" mt={2}>
+            <Typography variant="div" color="textSecondary" mt={2}>
               Content for {activeTab} is currently not available.
             </Typography>
           </Box>
