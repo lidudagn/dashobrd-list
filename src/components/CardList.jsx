@@ -3,96 +3,9 @@
 import React, { Suspense, useState } from 'react';
 import { Card, CardMedia, Button, Typography, Box, Grid, Pagination } from '@mui/material';
 
-//   const [expanded, setExpanded] = useState(false);
 
-//   const maxDescriptionLength = 100;
-//   const truncatedDescription = product.description.length > maxDescriptionLength
-//     ? `${product.description.substring(0, maxDescriptionLength)}...`
-//     : product.description;
 
-//   const handleExpandClick = () => {
-//     setExpanded(!expanded);
-//   };
 
-//   return (
-//     <Grid item key={product.id} xs={12} sm={6} md={4} lg={3}>
-// <Card
-//   sx={{
-//     height: '100%',
-//     display: 'flex',
-//     flexDirection: 'column',
-//     borderRadius: 2,
-//     boxShadow: 6, // Keeps the shadow effect
-//   }}
-// >
-//   <Box sx={{ position: 'relative', height: 300, p: 0 }}> 
-//     <CardMedia
-//       component="img"
-//       sx={{ 
-//         objectFit: 'cover', 
-//         height: '100%', 
-//         width: '100%', 
-//         borderRadius: 2, 
-//         transition: 'all 0.3s ease' 
-//       }}
-//       image={product.images[0]}
-//       alt={product.title}
-//     />
-//   </Box>
-//   <CardContent
-//     sx={{
-//       flexGrow: 1,
-//       display: 'flex',
-//       flexDirection: 'column',
-//       gap: 1, // Reduced spacing between elements
-//       paddingBottom: 1, // Adjust padding
-//     }}
-//   >
-//     <Typography variant="h6" sx={{ fontWeight: 'semibold', color: 'text.primary' }}>
-//       {product.title}
-//     </Typography>
-//     <Typography variant="body2" sx={{ color: 'text.secondary' }}>
-//       {expanded ? product.description : truncatedDescription}
-//       {product.description.length > maxDescriptionLength && (
-//         <Typography
-//           component="span"
-//           onClick={handleExpandClick}
-//           sx={{
-//             color: 'primary.main',
-//             cursor: 'pointer',
-//             fontWeight: 'bold',
-//             marginLeft: 0.5,
-//           }}
-//         >
-//           {expanded ? ' Show less' : ' See more'}
-//         </Typography>
-//       )}
-//     </Typography>
-//     <Typography variant="h5" sx={{ fontWeight: 'bold', color: 'text.primary' }}>
-//       ${product.price}
-//     </Typography>
-//   </CardContent>
-//   <Box sx={{ textAlign: 'center', pb: 2 }}> 
-//     <Button
-//       variant="contained"
-//       color="primary"
-//       sx={{
-//         backgroundColor: '#4B0082',
-//         padding: '8px 20px', 
-//         fontWeight: 'bold',
-//         '&:hover': {
-//           backgroundColor: 'primary.dark',
-//         },
-//       }}
-//     >
-//       View Product
-//     </Button>
-//   </Box>
-// </Card>
-
-//     </Grid>
-//   );
-// };
 const ProductCard = ({ product }) => {
   const [expanded, setExpanded] = useState(false);
 
