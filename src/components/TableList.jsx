@@ -56,6 +56,14 @@ const Table = ({ products, totalPages,isLoading ,setPage,page}) => {
 
    const columns = [
     {
+      id: "id",
+      header: "#",
+      accessorKey: "id",
+      Cell: ({ row, table }) =>
+        row.index + 1 + table.getState().pagination.pageIndex * table.getState().pagination.pageSize,
+     
+    },
+    {
       id: "image",
       header: "Image",
       accessorKey: "images",

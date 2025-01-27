@@ -10,6 +10,7 @@ import { Box, Grid, IconButton, Paper, Button, Typography } from "@mui/material"
 import { styled } from "@mui/system";
 import SearchIcon from '@mui/icons-material/Search';
 import { InputBase, InputAdornment } from '@mui/material';
+import unsplashImages from "../data/clothingImages.json"; 
 const SearchContainer = styled(Paper)({
   display: "flex",
   alignItems: "center",
@@ -53,6 +54,8 @@ const Home = () => {
   
   }, [activeTab]);
 
+
+  
   useEffect(() => {
     const fetchProducts = async () => {
       setIsLoading(true);
@@ -60,24 +63,26 @@ const Home = () => {
         const response = await axios.get(
           `https://api.escuelajs.co/api/v1/products?offset=${page.pageIndex * page.pageSize}&limit=${page.pageSize}`
         );
-
-        const unsplashImages = {
-          hudi: "https://images.unsplash.com/photo-1620799140188-3b2a02fd9a77?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTB8fGhvb2RpZXxlbnwwfHwwfHx8MA%3D%3D",
-          busoGris: "https://images.unsplash.com/photo-1641642231157-0849081598a2?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTEwfHxzd2VhdGVyfGVufDB8fDB8fHww",
-        };
-
+  
         const data = response.data;
+  
+        // Function to get a random image
+        const getRandomImage = () => {
+          const randomIndex = Math.floor(Math.random() * unsplashImages.length);
+          return unsplashImages[randomIndex];
+        };
+  
         const updatedProducts = data.map((product) => {
-          if (product.images.length < 2) {
-            if (product.title.toLowerCase().includes("hudi")) {
-              product.images = [unsplashImages.hudi];
-            } else {
-              product.images = [unsplashImages.busoGris];
-            }
+          // Check if the product images are invalid
+          if (product.images.length < 2 || product.images[0].includes("[")) {
+
+            product.images = [getRandomImage()]; // Assign a random image
+        
+
           }
           return product;
         });
-
+  
         setProducts(updatedProducts);
         setTotalPages(Math.ceil(response.data.length / page.pageSize));
       } catch (error) {
@@ -86,9 +91,10 @@ const Home = () => {
         setIsLoading(false);
       }
     };
-
+  
     fetchProducts();
   }, [page]);
+  
 
   const filteredProducts = products.filter((product) =>
     product.title.toLowerCase().includes(searchTerm.toLowerCase())
@@ -159,6 +165,7 @@ const Home = () => {
             />
           ) : (
             <ProductList
+            isLoading={isLoading}
               products={filteredProducts}
               page={page}
               setPage={setPage}
